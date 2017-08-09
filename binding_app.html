@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绑定爱信账号</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="Description" content="公益专属APP，随时随地做公益。"/>
+    <link rel="shortcut icon" href="images/bitbug_favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/binding_app.css"/>
+    <!--接口地址-->
+    <script src="url/url.js"></script>
+    <script src="js/common.js"></script>
+    <script src="jquery-1.8.3/jquery.min.js"></script>
+    <!--加密-->
+    <script src="lib/jsencrypt.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<body>
+<form action="" id="myform">
+
+    <h3>请输入您的昵称</h3>
+
+    <input type="text" id="phone" style="display: none" name="phone" />
+
+    <input type="text" class="username" id="nickname" name="nickname" placeholder="请输入您的昵称"/>
+    <!--公钥-->
+    <textarea style="display: none" name="" id="pubkey" cols="30" rows="10">
+        MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCwwfRmpv6qOdM0d/zLb7hqWW9Xj9449A1KJUH/mFHTqk3FuK911JfP+/SbBhB2KHZ0Kto0rVNpfERzyYrrT+zfKsbplvspX7ORXTnJqqQaFEur2/BOrGWZ4Ck6ehai0iBrpeUpVD/PtmJ0LmrwApaWNb4AOS/vvt7SLMary4c6TQIDAQAB
+    </textarea>
+
+    <h3>请输入您的登陆密码</h3>
+    <div>
+        <!--禁止输入空格 -->
+        <input type="password"  name="password" class="password" id="password" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" placeholder="请输入您的登陆密码"/>
+        <img src="images/eyesclose.png" alt=""/>
+    </div>
+
+
+    <h4>您还没有爱信账号，请完善您的基本资料</h4>
+    <!--<button class="binding" id="sbm" >绑定</button>-->
+
+    <input id="sbm" type="button"class="binding"   value="绑定" /><br />
+
+
+</form>
+
+    <!-- 站长统计 start-->
+    <div style="display:none">
+        <script src="lib/total.js"></script>
+    </div>
+    <!-- 站长统计 end -->
+</body>
+<script src="js/binding_app.js"></script>
+</html>

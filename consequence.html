@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>我的活动提议</title>
+    <link rel="shortcut icon" href="images/bitbug_favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <script src="jquery-1.8.3/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="lib/template.js"></script>
+    <style>
+        body{
+            padding: 10px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        h3{
+            text-align: center;
+            font-size: 0.3rem;
+            padding: 0.2rem 0;
+        }
+        p{
+            text-indent: 2em;
+            margin: 0.2rem 0;
+            font-size: 0.24rem;
+        }
+        img{
+            margin: 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h3></h3>
+    <div class="banner">
+        <img src="" alt=""/>
+        <h></h>
+    </div>
+    <div id="content">
+    </div>
+    <div class="fl">活动标签:</div>
+    <div class="fl" id="marks">
+
+    </div>
+
+</body>
+<script type="text/html" id="head">
+    {{each content as v i}}
+    {{if v.imageUrl != ""}}<img src="{{v.imageUrl}}" alt=""/>{{/if}}
+    {{if v.content != ""}}<p>{{v.content}}</p>{{/if}}
+    {{/each}}
+</script>
+<script type="text/html" id="mark">
+    {{each tabs as v i}}
+        <span>{{v.name}}</span>
+    {{/each}}
+</script>
+
+<script>
+    $.ajax({
+        url:"./package.json",
+        type:"post",
+        success: function (data) {
+            console.log(data);
+            var html = template("head",data)
+            $("#content").html(html);
+            $(".banner img").attr("src",data.coverPhoto)
+            var html1 = template("mark",data)
+            $("#marks").html(html1);
+            $("h3").html(data.name)
+        },
+        error: function () {
+            alert("fail")
+        }
+    })
+</script>
+</html>

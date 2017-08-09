@@ -1,0 +1,134 @@
+html,
+body {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #F2EFEE;
+  padding: 0.1rem 0.2rem 0.2rem 0.2rem;
+  box-sizing: border-box;
+}
+section ul li {
+  list-style: none;
+  /*margin-bottom: 10px;*/
+  position: relative;
+}
+section ul li img {
+  width: 100%;
+  position: relative;
+}
+section ul li .banner {
+  height: 3rem;
+}
+section ul li p {
+  width: 1.3rem;
+  border: 2px solid #ABABAB;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.4rem;
+  color: white;
+  font-size: 0.3rem;
+  border-radius: 8px;
+}
+section ul li p i{
+  font-size: 0.26rem;
+  vertical-align: middle;
+  margin-top: -0.08rem;
+  display:inline-block;
+  color:#999999;
+}
+section ul li p span{
+  font-size: 0.26rem;
+}
+section ul li .title {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 10px;
+  position: absolute;
+  /*height: 1.2rem;*/
+  /*margin-top: -1.2rem;*/
+  bottom: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+section ul li .title h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.3rem;
+  width: 5.5rem;
+  margin-bottom: 0.1rem;
+  color: white;
+}
+section ul li .title .adresspic {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  color:white;
+  font-size: 0.24rem;
+  margin-top: 0.15rem;
+}
+section ul li .title .team_adress {
+  font-size: 0.24rem;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: white;
+  margin-top: 0.2rem;
+  display: block;
+  overflow: hidden;
+}
+section ul li .title .time {
+  margin-left: 2px;
+  margin-top: 0.2rem;
+}
+section ul li .title .teampic {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: -0.5rem;
+  border: 1px solid white;
+  margin-top: 0.2rem;
+}
+section ul .info{
+  padding: 5px 10px;
+  box-sizing: border-box;
+  color:#666666;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+section ul .info .userpic{
+  width: 0.8rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+section ul .info .username{
+   vertical-align: middle;
+   font-size: 0.28rem;
+   margin-top: 0.2rem;
+   margin-left: 10px;
+ }
+section ul .info .eyes{
+  margin-top: 0.25rem;
+  font-size: 0.24rem;
+}
+section ul .info .star{
+  margin-top: 0.23rem;
+  margin-left: 0.28rem;
+  font-size: 0.24rem;
+}
+
+section ul .info .focus{
+   vertical-align: middle;
+   font-size: 0.28rem;
+   margin-top: 0.2rem;
+   margin-left: 10px;
+ }
+section ul .info .read{
+   vertical-align: middle;
+   font-size: 0.28rem;
+   margin-top: 0.2rem;
+   margin-left: 10px;
+ }
+
