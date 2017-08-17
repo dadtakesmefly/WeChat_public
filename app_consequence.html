@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>活动提议_爱信公益</title>
+    <meta name="Description" content="公益专属APP，随时随地做公益。"/>
+    <link rel="shortcut icon" href="images/bitbug_favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/consequence.css"/>
+    <script src="url/url.js"></script>
+    <script src="jquery-1.8.3/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="lib/template.js"></script>
+    <!--微信js-->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/weixinshare.js"></script>
+
+</head>
+<body>
+
+    <!--下载按钮-->
+    <div class="slogan">
+        <img class="slogan_left" src="images/slogan.png" alt=""/>
+        <span class="downloading">立即下载</span>
+        <img  class="close" src="images/取消按钮.png" alt=""/>
+    </div>
+
+    <!--banner图头部信息-->
+    <header class="banner">
+        <img src="" alt=""/>
+        <h3></h3>
+    </header>
+
+    <!--推荐信息-->
+    <div class="tip">
+        <h3>爱信用户 <span class="nickname"></span> 本提议推荐给了 <span class="team"></span></h3>
+    </div>
+
+    <!--关注支持信息-->
+    <div class="datas">
+        <ul class="clearfix">
+            <li> <img src="images/yes.png" alt=""/> <span class="sup">234</span>人支持</li>
+            <li> <img src="images/关注.png" alt=""/> <span class="focus">234</span>人关注</li>
+        </ul>
+    </div>
+
+    <!--提议导航-->
+    <div class="detail_nav">
+        <h2><img src="images/详情.png" alt=""/>提议详情</h2>
+    </div>
+
+    <!--提议内容-->
+    <div id="content">
+
+    </div>
+
+    <!--活动标签-->
+    <div class="box_tags">
+        <span class="fl tags"><img src="images/标签@2x.png" alt=""/></span>
+        <span class="marks">
+         </span>
+    </div>
+
+    <!--分割线-->
+    <div class="split_line"><p></p></div>
+
+    <!--底部推荐信息-->
+    <div class="foot">
+        <p><img src="images/详情.png" alt=""/>还被其他人推荐到··········</p>
+        <ul class="clearfix">
+
+        </ul>
+    </div>
+
+</body>
+<script type="text/html" id="head">
+    {{each content as v i}}
+    {{if v.content != ""}}<pre>{{v.content}}</pre>{{/if}}
+    {{if v.imageUrl != ""}}<img src="{{v.imageUrl}}" alt=""/>{{/if}}
+    {{/each}}
+</script>
+<script type="text/html" id="mark">
+    {{each tabs as v i}}
+        <span class="mark"> {{v.name}}&nbsp;|</span>
+    {{/each}}
+</script>
+<script type="text/html" id="sharelist">
+    {{each recommendList as v i}}
+        {{ if i < 7 }}  <li><img src="{{v}}" alt=""/></li>{{/if}}
+    {{/each}}
+</script>
+<script src="js/app_consequence.js"></script>
+<script src="js/openApp.js"></script>
+</html>

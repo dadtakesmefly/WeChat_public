@@ -1,0 +1,240 @@
+html,body{
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top:1.02rem;
+    background-color: #F2EFEE;
+}
+
+/*下载按钮*/
+.slogan{
+    padding: 0.2rem;
+    width: 6.4rem;
+    position: fixed;
+    top:0;
+    z-index: 100;
+    border-bottom: 1px solid #EFEFEF;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.slogan .slogan_left{
+    width: 50%;
+    vertical-align: middle;
+    float: left;
+}
+.slogan .downloading{
+    font-size: 0.24rem;
+    background-color: #ED4B51;
+    color: white;
+    padding: 0.1rem 0.2rem;
+    border-radius: 8px;
+    position: absolute;
+    right: 0.4rem;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.slogan .close {
+    width: 2%;
+    position: absolute;
+    top: 12%;
+    right: 4%;
+    cursor: pointer;
+}
+
+/*banner头部信息*/
+.banner{
+    position: relative;
+}
+.banner img{
+    margin: 0 auto;
+    width: 100%;
+}
+.banner h3{
+    font-size: 0.3rem;
+    padding: 0.12rem 0.24rem 0.16rem 0.24rem;
+    line-height: 0.5rem;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    bottom: 0px;
+    color:white;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+/*推荐信息*/
+.tip{
+    padding: 0 0.08rem;
+    box-sizing: border-box;
+    margin-top: 0.16rem;
+}
+.tip h3{
+    background-color: white;
+    font-size: 0.28rem;
+    padding: 0.24rem 0.44rem;
+    box-sizing: border-box;
+    color:#666;
+}
+.tip h3 span{
+    font-size: 0.28rem;
+}
+
+/*关注支持信息*/
+.datas{
+    padding: 0 0.08rem;
+    margin-top: 0.16rem;
+
+}
+.datas ul{
+    background-color: white;
+    padding: 0.2rem;
+    margin-top: 0rem;
+}
+.datas ul li{
+    width: 50%;
+    float: left;
+    font-size: 0.28rem;
+    color:#666;
+    text-align: center;
+}
+.datas ul li span{
+    font-size: 0.28rem;
+    margin-left: 0.3rem;
+    color:#666;
+}
+.datas ul li img{
+    width:10%;
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+}
+.datas ul li:nth-child(2) img{
+   margin-top: -0.1rem;
+
+}
+
+/*活动提议导航*/
+.detail_nav {
+    padding: 0 0.08rem;
+    box-sizing: border-box;
+    margin-top: 0.16rem;
+}
+.detail_nav h2{
+    font-size: 0.30rem;
+    padding: 0.18rem;
+    box-sizing: border-box;
+    color: #666;
+    background-color: #fff;
+    border-bottom: 1px solid #A7A7A7;
+}
+.detail_nav h2 img{
+    width: 7%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.1rem;
+    margin-top: -0.06rem;
+}
+
+/*活动提议内容*/
+#content{
+    padding: 0 0.08rem;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+#content pre{
+    text-indent: 2em;
+    font-size: 0.24rem;
+    color:#333;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.1rem 0rem;
+    font-family: 'Helvetica', Arial;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 0.36rem;
+
+}
+#content img{
+    margin: 0 auto;
+    width: 100%;
+}
+
+/*活动标签*/
+.box_tags{
+    padding: 0.12rem 0.08rem 0.12rem 0.26rem;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.box_tags .tags {
+    font-size: 0.28rem;
+}
+.box_tags .tags img{
+    width: 60%;
+    vertical-align: middle;
+    margin-top: 0.05rem;
+}
+.marks {
+    overflow:hidden;
+    display:block;
+    font-size: 0.26rem
+}
+.box_tags .mark{
+    font-size: 0.26rem;
+    color:#333;
+}
+
+/*分割线*/
+.split_line{
+    background-color: #fff;
+    padding: 0 0.1rem 0.1rem 0.1rem;
+}
+.split_line p{
+    height: 0.1rem;
+    background-color: #F2EFEE;
+}
+
+/*底部推荐信息*/
+.foot{
+    background-color: #fff;
+    padding-bottom: 0.5rem;
+}
+.foot p{
+    padding-left: 0.18rem;
+    box-sizing: border-box;
+    font-size: 0.30rem;
+    color:#666;
+
+}
+.foot p img{
+    width: 7%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.1rem;
+    margin-top: -0.06rem;
+}
+.foot ul{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    padding: 0 0.1rem;
+    box-sizing: border-box;
+    margin-top: 0.4rem;
+}
+.foot ul li{
+    width: 10%;
+}
+.foot ul li img{
+    border-radius: 50%;
+    width: 90%;
+}
+

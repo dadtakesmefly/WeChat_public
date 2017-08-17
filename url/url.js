@@ -47,6 +47,10 @@
 
     urls.login = build("v1b04/user/login")  //用户手机号密码登陆
 
+    urls.list = build("v1b09/proposal/list")  //个人活动提议列表
+
+    urls.detail = build("v1b09/proposal/detail") //活动提议详情
+
     //组装url
     function  build( linkname) {
         return baseurl  +　linkname;

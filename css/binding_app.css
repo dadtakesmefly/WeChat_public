@@ -64,7 +64,7 @@ h4{
     margin-top: 20px;
     border-radius: 8px;
     cursor: pointer;
-    letter-spacing: 15px;
+    letter-spacing: 0.10rem;
     font-size: 0.24rem;
 }
 a{

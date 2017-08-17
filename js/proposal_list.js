@@ -39,17 +39,17 @@ $(function(){
                 "sort":""
             }
         }
-
         $.ajax({
             type: 'post',
-            url:"https://192.168.31.248:8443/backend/v1b09/proposal/list",
+            url:urls.list,
             data:JSON.stringify(datas),
             "contentType":"application/json; charset=utf-8",
             success: function(reponse){
                 config.isAjax = false;
                 var data = reponse.data;
-                //console.log(data);
+                console.log(data);
                 data = tabstostring(data);
+                console.log(data);
                 var sum = reponse.data.length;
                 var result = '';
                 /************业务逻辑块：实现拼接html内容并append到页面*****************/
@@ -63,24 +63,32 @@ $(function(){
                 /*使用for循环模拟SQL里的limit(offset,size)*/
                 for(var i=offset; i< (offset+size); i++){
 
-                    result +=  ' <li>'  +
-                           '<img class="banner" src=" '+data[i].coverPhoto+ '"  alt=/>'+
-                           '<div class="title"> '+
-                           ' <h4>'+data[i].name+'</h4>'+
-                           ' <span class="adresspic iconfont fl">&#xe646;</span><span class="team_adress">'+data[i].tabs+'</span>'+
-                           '</div>'+
-                           ' </li>'+
-                           '<div class="info clearfix">'+
-                           '<img class="userpic fl" src=" '+data[i].creator.photoUrl+ '"  alt=><span class="fl username">'+data[i].creator.nickname+'</span>'+
-                           '<span class="fr focus">'+data[i].followNum+'</span><i class="iconfont star fr">&#xe614;</i><span class="fr read">'+data[i].pv+'</span><i class="iconfont eyes fr">&#xe61a;</i>'+
-                           '</div>'
-                    
+                    result +=  ' <li>'
+                    result +=  '<input style="display: none"  value =' + data[i].proposalId+'>'
+                    result +=  '<img class="banner" src=" '+data[i].coverPhoto+ '" >'
+                    result +=  '<div class="title">'
+                    result +=  ' <h4>'+data[i].name+'</h4>'
+                    result +=  ' <span class="adresspic iconfont fl">&#xe646;</span><span class="team_adress">'+data[i].tabs+'</span>'
+                    result +=  '</div>'
+                    result +=  '</li>'
+                    result +=  '<div class="info clearfix">'
+                                //判断用户是否有头像
+                                 if(data[i].creator.photoUrl== ""){
+                    result +=    '<img class="userpic fl" src="./images/默认头像.png"/>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
+                                }else{
+                    result +=    '<img class="userpic fl" src=" '+data[i].creator.photoUrl+ '"  alt=>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
+                                }
+                    result +=   '<span class="fr focus">'+data[i].followNum+'</span><i class="iconfont star fr">&#xe614;</i><span class="fr read">'+data[i].pv+'</span><i class="iconfont eyes fr">&#xe61a;</i>'
+                    result +=   '</div>'
+
                 }
                 $('ul').append(result);
-                //console.log($(".userpic").attr("src"));
-                if($(".userpic").attr("src") == " "){
-                    $(".userpic").attr("src","./images/默认头像.png")
-                }
+                $("ul li").on("click", function () {
+                    var proposalId =$(this).find("input").val();
+                    window.location.href='./wechat_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
+                    //window.location.href='./app_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
+                })
+
                 /*******************************************/
                 /*隐藏more*/
                 if ( (offset + size) >= sum){
@@ -90,6 +98,7 @@ $(function(){
                     //提示没有了
                 }else{
                     $(".js-load-more").show();
+
                 }
             },
             error: function(xhr, type){
@@ -98,6 +107,7 @@ $(function(){
         });
     }
     $.loadmore.get(getData, {scroll: true, size:5});
+
     //tabs结构转化
     function tabstostring(data){
         //先循环data对象
@@ -117,6 +127,5 @@ $(function(){
         })
         return data
     }
-
 });
 

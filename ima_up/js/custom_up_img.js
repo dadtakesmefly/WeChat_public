@@ -39,7 +39,9 @@ $(function() {
             var files = this.files;
             var file;
 
+
             if (files && files.length) {
+
                file = files[0];
 
                if (/^image\/\w+$/.test(file.type)) {
@@ -81,36 +83,48 @@ $(function() {
     	var height=parame_json.height;
     	//console.log(parame_json.width);
     	//console.log(parame_json.height);
-
     	//控制裁剪图片的大小
     	var canvas=$image.cropper('getCroppedCanvas',{width: "750",height: "375"});
-    	var data=canvas.toDataURL(); //转成base64
-        //console.log(data);
-        //console.log(data.substring(data.indexOf(",") + 1));
-        var data = data.substring(data.indexOf(",") + 1)
-        console.log(url);
-        $.ajax( {  
+        console.log(canvas);
+        var data=canvas.toDataURL(); //转成base64
+        function dataURItoBlob(dataURI) {
+            var byteString = atob(dataURI.split(',')[1]);
+            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            var ab = new ArrayBuffer(byteString.length);
+            var ia = new Uint8Array(ab);
+            for (var i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], {type: mimeString});
+        }
+        //转成blob
+        var blobs = dataURItoBlob(data);
+        console.log(blobs);
+        var formdata = new FormData();
+        formdata.append("file",blobs )
+        //console.log(formdata.get("file"));
+        $.ajax( {
                 url:url,
-                type: "POST",
-                contentType:"application/x-www-form-urlencoded",
-                data: {"image":data,fileName:""},
+                data:formdata,
+                type:"post",
+                processData: false, // 不会将 data 参数序列化字符串 必不可少
+                contentType: false, // 必不可少
                 success: function(data, textStatus){
                     console.log(data);
-                    console.log(data.ok);
-                    console.log(data.data.url);
-                    window.parent.$(".src").attr("value",data.data.url)
-                    $modal_loading.modal('close');
-                	set_alert_info(data.result);
-                	$modal_alert.modal();
-                    $("#up-modal-frame").modal('close');
-                	if(data.ok==="true"){
-                        $("#up-img-touch img").attr("src",data.file);
-                		var img_name=data.file.split('/')[2];
-                		//console.log(img_name);
-                		$(".up-img-txt a").text(img_name);
-                		$("#up-modal-frame").modal('close');
+                    //console.log(data.ok);
+                   window.parent.$(".src").attr("value",data.data[0])
+                    //$modal_loading.modal('close');
+                    //set_alert_info(data.result);
+                	$modal_alert.modal(); //当前的 iframe层
+                    $("#up-modal-frame").modal('close'); //当前的图片显示层
 
-                	}
+                	//if(data.ok==="true"){
+                        //$("#up-img-touch img").attr("src",data.file);
+                		//var img_name=data.file.split('/')[2];
+                		////console.log(img_name);
+                		//$(".up-img-txt a").text(img_name);
+                		//$("#up-modal-frame").modal('close');
+                	//}
                 },
                 error: function(){
                 	$modal_loading.modal('close');

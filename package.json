@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "data": {
+  "content": [
+   {
+    "imageUrl": "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+    "width": "200",
+    "height": "200",
+    "content": ""
+   },
+   {
+    "imageUrl": "",
+    "width": "0",
+    "height": "0",
+    "content": "第二段文本"
+   },
+   {
+    "imageUrl": "http://or9dun107.bkt.clouddn.com/CTS_1501747483116.jpg",
+    "width": "700",
+    "height": "1004",
+    "content": "第三段文本"
+   }
+  ],
+  "coverPhoto": "http://or9dun107.bkt.clouddn.com/CTS_1501747466069.jpg",
+  "name": "我的活动提议我的活动提议我的活动提议我的活动提议我的活动提议我的活动提议我的活动提议我的活动",
+  "tabs": [
+   {
+    "id": "CA03",
+    "name": "卫生健康"
+   },
+   {
+    "id": "CA07",
+    "name": "教育服务"
+   },
+   {
+    "id": "CA07",
+    "name": "教育服务"
+   },
+   {
+    "id": "CA07",
+    "name": "教育服务"
+   },
+   {
+    "id": "CA12",
+    "name": "服务三农"
+   },
+   {
+    "id": "CA03",
+    "name": "卫生健康"
+   },
+   {
+    "id": "CA12",
+    "name": "服务三农"
+   }
+  ],
+  "nickName": "Localhost_kEyUHA1xhQcD",
+  "team": "武汉华夏爱信公益团队",
+  "recommendList": [
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg",
+   "http://or9dun107.bkt.clouddn.com/CTS_1501747473223.jpg"
+  ]
+ }
+}
