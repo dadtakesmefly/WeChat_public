@@ -51,6 +51,8 @@
 
     urls.detail = build("v1b09/proposal/detail") //活动提议详情
 
+    urls.actLsit= build("v1b09/act/list") //查询我参与的活动列表
+
     //组装url
     function  build( linkname) {
         return baseurl  +　linkname;

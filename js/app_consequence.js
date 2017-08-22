@@ -5,7 +5,7 @@
 $(function () {
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);  //»ñÈ¡urlÖĞ"?"·ûºóµÄ×Ö·û´®²¢ÕıÔòÆ¥Åä
+        var r = window.location.search.substr(1).match(reg);  //è·å–urlä¸­"?"ç¬¦åçš„å­—ç¬¦ä¸²å¹¶æ­£åˆ™åŒ¹é…
         var context = "";
         if (r != null)
             context = r[2];
@@ -16,7 +16,7 @@ $(function () {
     var userId = GetQueryString("userId");
     var proposalId = GetQueryString("proposalId");
     var datas = {
-        "common": {//¹«¹²²ÎÊı
+        "common": {//å…¬å…±å‚æ•°
             "v": "1.0",
             "sign": "",
             "appversion": "1.0",
@@ -39,33 +39,34 @@ $(function () {
         success: function (data) {
             var data =data.data
             console.log(data);
-            //ÉèÖÃÍ¼ÎÄ
+            //è®¾ç½®å›¾æ–‡
             var html = template("head",data)
             $("#content").html(html);
-            //ÉèÖÃbannerÍ¼
+            //è®¾ç½®bannerå›¾
             $(".banner img").attr("src",data.coverPhoto)
-            //ÉèÖÃ±êÇ©
+            //è®¾ç½®æ ‡ç­¾
             var html1 = template("mark",data)
             $(".marks").html(html1);
-            //Ìæ»»×îºóÒ»¸ö±êÇ©µÄ·Ö¸ô·û "|"
+            //æ›¿æ¢æœ€åä¸€ä¸ªæ ‡ç­¾çš„åˆ†éš”ç¬¦ "|"
             var s =$('.marks').find(".mark:last").text();
             s=s.substring(0,s.length-1)
             $(".marks").find(".mark:last").text(s);
-            //ÉèÖÃ»î¶¯±êÌâ
+            //è®¾ç½®æ´»åŠ¨æ ‡é¢˜
             $("header  h3").html(data.name)
-            //ÉèÖÃÓÃ»§êÇ³Æ
-            //$(".nickname").html(data.nickName);
-            //ÉèÖÃÍÅ¶ÓÃû³Æ
-            $(".team").html(data.team);
-            //ÉèÖÃ¹Ø×¢ÈËÊı
+            //è®¾ç½®å…³æ³¨äººæ•°
             $(".focus").html(data.followNum);
-            //ÉèÖÃµãÔŞÈËÊı
+            //è®¾ç½®ç‚¹èµäººæ•°
             $(".sup").html(data.likeNum);
-            //ÉèÖÃ°®ĞÅÓÃ»§
-            $(".nickname").html(data.creator.nickname);
-            //ÉèÖÃÍÆ¼öÈËÁĞ±í
+            //è®¾ç½®æ¨èäººåˆ—è¡¨
             var recommendList = template("sharelist",data)
             $(".foot ul ").html(recommendList);
+
+
+            //è®¾ç½®çˆ±ä¿¡ç”¨æˆ·åå­— å¯èƒ½ä¸éœ€è¦ é™æ€åŒ–å®ç°
+            $(".nickname").html(data.creator.nickname);
+            //è®¾ç½®åˆ†äº«åˆ°çš„å›¢é˜Ÿåç§° å¯èƒ½ä¸éœ€è¦ é™æ€åŒ–å®ç°
+            $(".team").html(data.team);
+
 
         },
         error: function () {

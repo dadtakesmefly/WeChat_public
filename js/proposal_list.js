@@ -47,58 +47,69 @@ $(function(){
             success: function(reponse){
                 config.isAjax = false;
                 var data = reponse.data;
-                console.log(data);
-                data = tabstostring(data);
-                console.log(data);
                 var sum = reponse.data.length;
-                var result = '';
-                /************业务逻辑块：实现拼接html内容并append到页面*****************/
-                //console.log(offset , size, sum);
-                /*如果剩下的记录数不够分页，就让分页数取剩下的记录数
-                 * 例如分页数是5，只剩2条，则只取2条
-                 */
-                if(sum - offset < size ){
-                    size = sum - offset;
+                if( sum > 0 ){
+                    console.log(data);
+                    data = tabstostring(data);
+                    console.log(data);
+                    var result = '';
+                    /************业务逻辑块：实现拼接html内容并append到页面*****************/
+                    //console.log(offset , size, sum);
+                    /*如果剩下的记录数不够分页，就让分页数取剩下的记录数
+                     * 例如分页数是5，只剩2条，则只取2条
+                     */
+                    if(sum - offset < size ){
+                        size = sum - offset;
+                    }
+                    /*使用for循环模拟SQL里的limit(offset,size)*/
+                    for(var i=offset; i< (offset+size); i++){
+
+                        result +=  ' <li>'
+                        result +=  '<input style="display: none"  value =' + data[i].proposalId+'>'
+                        result +=  '<img class="banner" src=" '+data[i].coverPhoto+ '" >'
+                        result +=  '<div class="title">'
+                        result +=  ' <h4>'+data[i].name+'</h4>'
+                        result +=  ' <span class="adresspic iconfont fl">&#xe646;</span><span class="team_adress">'+data[i].tabs+'</span>'
+                        result +=  '</div>'
+                        result +=  '</li>'
+                        result +=  '<div class="info clearfix">'
+                        //判断用户是否有头像
+                        if(data[i].creator.photoUrl== ""){
+                            result +=    '<img class="userpic fl" src="./images/默认头像.png"/>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
+                        }else{
+                            result +=    '<img class="userpic fl" src=" '+data[i].creator.photoUrl+ '"  alt=>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
+                        }
+                        result +=   '<span class="fr focus">'+data[i].followNum+'</span><i class="iconfont star fr">&#xe614;</i><span class="fr read">'+data[i].pv+'</span><i class="iconfont eyes fr">&#xe61a;</i>'
+                        result +=   '</div>'
+
+                    }
+                    $('ul').append(result);
+                    $("ul li").on("click", function () {
+                        var proposalId =$(this).find("input").val();
+                        window.location.href='./wechat_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
+                        //window.location.href='./app_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
+                    })
+
+                    /*******************************************/
+                    /*隐藏more*/
+                    if ( (offset + size) >= sum){
+                        $(".js-load-more").hide();
+                        //$(".js-load-more").html("到底啦")
+                        config.isEnd = true; /*停止滚动加载请求*/
+                        //提示没有了
+                    }else{
+                        $(".js-load-more").show();
+
+                    }
                 }
-                /*使用for循环模拟SQL里的limit(offset,size)*/
-                for(var i=offset; i< (offset+size); i++){
-
-                    result +=  ' <li>'
-                    result +=  '<input style="display: none"  value =' + data[i].proposalId+'>'
-                    result +=  '<img class="banner" src=" '+data[i].coverPhoto+ '" >'
-                    result +=  '<div class="title">'
-                    result +=  ' <h4>'+data[i].name+'</h4>'
-                    result +=  ' <span class="adresspic iconfont fl">&#xe646;</span><span class="team_adress">'+data[i].tabs+'</span>'
-                    result +=  '</div>'
-                    result +=  '</li>'
-                    result +=  '<div class="info clearfix">'
-                                //判断用户是否有头像
-                                 if(data[i].creator.photoUrl== ""){
-                    result +=    '<img class="userpic fl" src="./images/默认头像.png"/>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
-                                }else{
-                    result +=    '<img class="userpic fl" src=" '+data[i].creator.photoUrl+ '"  alt=>'+'<span class="fl username">'+data[i].creator.nickname+'</span>'
-                                }
-                    result +=   '<span class="fr focus">'+data[i].followNum+'</span><i class="iconfont star fr">&#xe614;</i><span class="fr read">'+data[i].pv+'</span><i class="iconfont eyes fr">&#xe61a;</i>'
-                    result +=   '</div>'
-
-                }
-                $('ul').append(result);
-                $("ul li").on("click", function () {
-                    var proposalId =$(this).find("input").val();
-                    window.location.href='./wechat_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
-                    //window.location.href='./app_consequence.html'+"?userId="+userId+"&proposalId="+proposalId
-                })
-
-                /*******************************************/
-                /*隐藏more*/
-                if ( (offset + size) >= sum){
-                    $(".js-load-more").hide();
-                    //$(".js-load-more").html("到底啦")
-                    config.isEnd = true; /*停止滚动加载请求*/
-                    //提示没有了
-                }else{
-                    $(".js-load-more").show();
-
+                else{
+                    $('section').html("您还没有发过提议").css({
+                      "position": "absolute",
+                        "top":"50%",
+                        "left":"50%",
+                        "transform":"translate(-50%,-50%)",
+                        "font-Size":"0.36rem"
+                    })
                 }
             },
             error: function(xhr, type){

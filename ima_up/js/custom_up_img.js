@@ -118,6 +118,9 @@ $(function() {
                 	$modal_alert.modal(); //当前的 iframe层
                     $("#up-modal-frame").modal('close'); //当前的图片显示层
 
+                    //$modal.modal('close');
+                    //set_alert_info(data.result);
+
                 	//if(data.ok==="true"){
                         //$("#up-img-touch img").attr("src",data.file);
                 		//var img_name=data.file.split('/')[2];

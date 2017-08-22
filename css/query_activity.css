@@ -4,6 +4,11 @@ body {
     margin: 0 auto;
     background-color: #F2EFEE;
 }
+h3{
+    font-size: 0.24rem;
+    padding: 0.2rem 0;
+    display: none;
+}
 section ul{
     padding-top: 10px;
 }
@@ -35,7 +40,7 @@ section ul li p {
     background-color: #FFA61B;
 }
 section ul li div {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 0px 10px;
     position: relative;
     height: 1.2rem;

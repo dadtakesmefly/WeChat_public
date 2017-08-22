@@ -153,7 +153,8 @@ $(function () {
         })
         //提交数据
         var str3
-        var str0;
+        var str0
+        var bool;
         $("#sbm").on("click", function () {
             //获取图文混排的内容
             var html = $("#editable").html()
@@ -161,6 +162,9 @@ $(function () {
             $(".hidden_data").html(html);
             str3 = toJsonlist();
             str0 = toJSONString();
+            bool =  regSrc();
+            console.log(bool)
+            //console.log(str3);
             //标题不能为空
             if($(".title_top").val() == ""){
                 layer.open({
@@ -170,7 +174,7 @@ $(function () {
                 })
                 return
             }
-            //banner图不能为空
+           // banner图不能为空
             else if ($(".src").val() == ""){
                 layer.open({
                     skin:"demo-class",
@@ -179,12 +183,21 @@ $(function () {
                 })
                 return
             }
-            //标签不能为空
+           // 标签不能为空
             else if($('input[name="mark"]').is(':checked') == false){
                 layer.open({
                     skin:"demo-class",
                     title:"提示",
                     content:"请选择活动标签"
+                })
+                return
+            }
+            //图片上传是否成功返回七牛地址
+            else if( bool == false ){
+                layer.open({
+                    skin:"demo-class",
+                    title:"提示",
+                    content:"图片正在上传，请耐心等待"
                 })
                 return
             }
@@ -214,20 +227,20 @@ $(function () {
                                 "content":str3
                             }
                         }
-                        //console.log(datas);
+                        console.log(datas);
                         $.ajax({
                             url: urls.create,
                             type:"post",
                             "contentType":"application/json; charset=utf-8",
                             data:JSON.stringify(datas),
                             success: function (data) {
-                                //console.log(data);
+                                console.log(data);
                                 layer.open({
                                     skin:"demo-class",
                                     title:"提示",
                                     content:"提交成功",
                                     end: function () {
-                                        window.location.href="./proposal_list.html?"+"userId="+userId
+                                        //window.location.href="./proposal_list.html?"+"userId="+userId
                                     }
                                 })
                             },
@@ -323,4 +336,29 @@ $(function () {
         var str0 = str1.concat(str3,str2);
         return str0
     }
+    //检测图片地址
+    function regSrc(){
+        var bool;
+        $.each( $(".hidden_data li:gt(0)").children("img"), function (i, v) {
+            console.log(i);
+            console.log(v);
+            console.log(v.src);
+            console.log(typeof v.src);
+            var reg =new RegExp("http");
+            for(var s=0;s<=i;s++){
+                if(reg.test(v.src)){
+                   bool =true;
+                }
+                else{
+                    bool =false;
+                }
+                console.log(bool);
+            }
+        })
+        return bool
+    }
+
+
+
+
 

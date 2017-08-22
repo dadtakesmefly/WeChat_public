@@ -5,7 +5,7 @@
 var weixinUrl= "https://rest.cnaisin.com:8443/AXGY_OP/weixin";
 $.ajax({
     url:weixinUrl,
-    data:{"appId":"wx1b11965fd47606d2","url":window.location.href},
+    data:{"appId":"wx5c2a0cf831ae3610","url":window.location.href},
     type:"post",
     success: function (result) {
         //console.log(result.data);
