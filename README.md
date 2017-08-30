@@ -5,6 +5,12 @@
 ### 转换后的数据结构
 ![img](./images/QQ图片20170809165334.png)
 
+### 图文混排编辑器结构 
+![img](http://or9dun107.bkt.clouddn.com/CTS_1504062137077_file.jpg)
+### 转换后
+![img](http://or9dun107.bkt.clouddn.com/CTS_1504062141952_file.jpg)
+
+
 ## 二进制流上传图片
         //上传图片
         $("li").on("click", function () {
